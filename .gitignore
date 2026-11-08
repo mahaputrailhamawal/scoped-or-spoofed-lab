@@ -1,0 +1,51 @@
+# Terraform state — contains account IDs, role ARNs, and resource details.
+# NEVER commit this, especially for a public security-demo repo.
+*.tfstate
+*.tfstate.*
+terraform.tfstate
+terraform.tfstate.backup
+
+# Terraform working directory — provider binaries and plugin cache,
+# large and machine-specific, should never be committed.
+**/.terraform/
+.terraform/
+
+# Terraform crash logs, if any debugging session leaves one behind
+crash.log
+crash.*.log
+
+# Terraform variable files that may carry real account IDs, repo names,
+# or other values specific to your lab account — only ignore the local
+# ones, keep any committed .tfvars.example as a template for others
+*.tfvars
+*.tfvars.json
+!*.tfvars.example
+
+# macOS Finder metadata
+.DS_Store
+**/.DS_Store
+
+# Build artifacts — generated zips, not source
+*.zip
+
+# Local-only scratch/test scripts (only if test.sh is meant to stay
+# uncommitted; remove this line if you actually want it tracked)
+terraform/test.sh
+
+# Editor/OS cruft (defensive, common across most setups)
+.vscode/
+.idea/
+*.swp
+
+# Just in case — never commit real AWS credentials if you ever test
+# locally with a credentials file dropped into the repo by accident
+.env
+*.pem
+*.key
+credentials
+
+# legit-repo and spoof-repo are standalone GitHub repositories with their
+# own git history (see README for links) — not tracked here, to avoid
+# Git treating them as embedded/nested repos.
+github-actions/legit-repo/
+github-actions/spoof-repo/
